@@ -28,3 +28,10 @@ def add_page_to_index(index, url, content):
     words = content.split()
     for word in words:
         add_to_index(index, word, url)
+                     
+def get_page(pagelink):
+    try:
+        import urllib
+        return urllib.open(pagelink).read()
+    except:
+        return ""

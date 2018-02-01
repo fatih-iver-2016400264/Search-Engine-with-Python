@@ -15,14 +15,11 @@ def compute_ranks(graph):
             newrank = (1 - d) / npages
             
             #Insert Code Here
-            outlinks_sum = 0
+    
             for anotherPage in graph:
-                noutlinks = len(graph[anotherPage])
-                if noutlinks != 0:
-                    if page in graph[anotherPage]:
-                        outlinks_sum += d * ranks[anotherPage] / noutlinks
-            newrank += outlinks_sum
-
+                if page in graph[anotherPage]:
+                        newrank += d * ranks[anotherPage] / len(graph[anotherPage])
+                        
             newranks[page] = newrank
         ranks = newranks
     return ranks
